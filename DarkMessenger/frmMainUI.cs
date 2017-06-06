@@ -15,22 +15,23 @@ namespace DarkMessenger
         public frmMainUI()
         {
             InitializeComponent();
+            pic
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            this.toolStripStatusLabel1.Image = Properties.Resources.Connect_15;
-            this.toolStripStatusLabel1.Text = "Połączony";
+            this.fm_toolStripStatusLabel_polaczony.Image = Properties.Resources.Connect_15;
+            this.fm_toolStripStatusLabel_polaczony.Text = "Połączony";
         }
 
         private void pictureBox_settings_MouseHover(object sender, EventArgs e)
         {
-            this.pictureBox_settings.Image = Properties.Resources.settings;
+            this.mf_pictureBox_settings.Image = Properties.Resources.settings;
         }
 
         private void pictureBox_settings_MouseLeave(object sender, EventArgs e)
         {
-            this.pictureBox_settings.Image = Properties.Resources.settings_w1;
+            this.mf_pictureBox_settings.Image = Properties.Resources.settings_w1;
         }
 
         private void pictureBox_settings_Click(object sender, EventArgs e)

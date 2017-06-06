@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.label_skin = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.uc_comboBox_skin = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.uc_textbox_serwer = new System.Windows.Forms.TextBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -47,13 +47,16 @@
             this.label_skin.TabIndex = 0;
             this.label_skin.Text = "Skin:";
             // 
-            // comboBox1
+            // uc_comboBox_skin
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(166, 37);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(261, 21);
-            this.comboBox1.TabIndex = 1;
+            this.uc_comboBox_skin.FormattingEnabled = true;
+            this.uc_comboBox_skin.Items.AddRange(new object[] {
+            "Jasny",
+            "Ciemny"});
+            this.uc_comboBox_skin.Location = new System.Drawing.Point(166, 37);
+            this.uc_comboBox_skin.Name = "uc_comboBox_skin";
+            this.uc_comboBox_skin.Size = new System.Drawing.Size(312, 21);
+            this.uc_comboBox_skin.TabIndex = 1;
             // 
             // label1
             // 
@@ -66,7 +69,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.uc_textbox_serwer);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(23, 81);
             this.groupBox1.Name = "groupBox1";
@@ -75,20 +78,19 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Połączenie";
             // 
-            // textBox1
+            // uc_textbox_serwer
             // 
-            this.textBox1.Location = new System.Drawing.Point(143, 24);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(312, 20);
-            this.textBox1.TabIndex = 3;
-            // 
+            this.uc_textbox_serwer.Location = new System.Drawing.Point(143, 24);
+            this.uc_textbox_serwer.Name = "uc_textbox_serwer";
+            this.uc_textbox_serwer.Size = new System.Drawing.Size(312, 20);
+            this.uc_textbox_serwer.TabIndex = 3;
             // 
             // ucSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.uc_comboBox_skin);
             this.Controls.Add(this.label_skin);
             this.Name = "ucSettings";
             this.Size = new System.Drawing.Size(585, 284);
@@ -103,10 +105,10 @@
         #endregion
 
         private System.Windows.Forms.Label label_skin;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox uc_comboBox_skin;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox uc_textbox_serwer;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }

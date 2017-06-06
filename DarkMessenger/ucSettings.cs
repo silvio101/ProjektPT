@@ -19,7 +19,7 @@ namespace DarkMessenger
 
         private void ucSettings_Load(object sender, EventArgs e)
         {
-        //aaaa
+            uc_textbox_serwer.Text = System.Drawing.SystemColors.MenuHighlight.R.ToString() + " " + System.Drawing.SystemColors.MenuHighlight.G.ToString() + " " +System.Drawing.SystemColors.MenuHighlight.B.ToString();
         }
 
 

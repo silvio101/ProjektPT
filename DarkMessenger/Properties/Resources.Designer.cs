@@ -63,6 +63,16 @@ namespace DarkMessenger.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap circle {
+            get {
+                object obj = ResourceManager.GetObject("circle", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Connect_15 {
             get {
                 object obj = ResourceManager.GetObject("Connect_15", resourceCulture);
@@ -76,6 +86,16 @@ namespace DarkMessenger.Properties {
         internal static System.Drawing.Bitmap Disconnect_15 {
             get {
                 object obj = ResourceManager.GetObject("Disconnect_15", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap not_bad_154 {
+            get {
+                object obj = ResourceManager.GetObject("not-bad-154", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
