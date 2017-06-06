@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMainUI));
             this.mf_panel_user = new System.Windows.Forms.Panel();
+            this.mf_panel_contactsMiniPane = new System.Windows.Forms.Panel();
+            this.mf_pictureBox_contacts = new System.Windows.Forms.PictureBox();
             this.mf_panel_MessMiniPane = new System.Windows.Forms.Panel();
             this.mf_pictureBox_message = new System.Windows.Forms.PictureBox();
             this.mf_pictureBox_avatarFront = new System.Windows.Forms.PictureBox();
@@ -39,10 +41,11 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.mf_toolStripStatusLabel_polaczony = new System.Windows.Forms.ToolStripStatusLabel();
             this.panel_content = new System.Windows.Forms.Panel();
-            this.mf_pictureBox_contacts = new System.Windows.Forms.PictureBox();
-            this.mf_panel_contactsMiniPane = new System.Windows.Forms.Panel();
+            this.ucAddressBook1 = new DarkMessenger.ucAddressBook();
             this.ucSettings1 = new DarkMessenger.ucSettings();
             this.mf_panel_user.SuspendLayout();
+            this.mf_panel_contactsMiniPane.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mf_pictureBox_contacts)).BeginInit();
             this.mf_panel_MessMiniPane.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mf_pictureBox_message)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mf_pictureBox_avatarFront)).BeginInit();
@@ -51,8 +54,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.mf_pictureBox_avatar)).BeginInit();
             this.statusStrip1.SuspendLayout();
             this.panel_content.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.mf_pictureBox_contacts)).BeginInit();
-            this.mf_panel_contactsMiniPane.SuspendLayout();
             this.SuspendLayout();
             // 
             // mf_panel_user
@@ -71,6 +72,29 @@
             this.mf_panel_user.Name = "mf_panel_user";
             this.mf_panel_user.Size = new System.Drawing.Size(585, 185);
             this.mf_panel_user.TabIndex = 0;
+            // 
+            // mf_panel_contactsMiniPane
+            // 
+            this.mf_panel_contactsMiniPane.Controls.Add(this.mf_pictureBox_contacts);
+            this.mf_panel_contactsMiniPane.Dock = System.Windows.Forms.DockStyle.Right;
+            this.mf_panel_contactsMiniPane.Location = new System.Drawing.Point(231, 0);
+            this.mf_panel_contactsMiniPane.Name = "mf_panel_contactsMiniPane";
+            this.mf_panel_contactsMiniPane.Size = new System.Drawing.Size(125, 181);
+            this.mf_panel_contactsMiniPane.TabIndex = 5;
+            // 
+            // mf_pictureBox_contacts
+            // 
+            this.mf_pictureBox_contacts.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.mf_pictureBox_contacts.BackgroundImage = global::DarkMessenger.Properties.Resources.book_w;
+            this.mf_pictureBox_contacts.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.mf_pictureBox_contacts.Location = new System.Drawing.Point(0, 54);
+            this.mf_pictureBox_contacts.Name = "mf_pictureBox_contacts";
+            this.mf_pictureBox_contacts.Size = new System.Drawing.Size(64, 64);
+            this.mf_pictureBox_contacts.TabIndex = 0;
+            this.mf_pictureBox_contacts.TabStop = false;
+            this.mf_pictureBox_contacts.Click += new System.EventHandler(this.mf_pictureBox_contacts_Click);
+            this.mf_pictureBox_contacts.MouseLeave += new System.EventHandler(this.mf_pictureBox_contacts_MouseLeave);
+            this.mf_pictureBox_contacts.MouseHover += new System.EventHandler(this.pictureBox1_MouseHover);
             // 
             // mf_panel_MessMiniPane
             // 
@@ -171,33 +195,21 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel_content.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.panel_content.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel_content.Controls.Add(this.ucAddressBook1);
             this.panel_content.Controls.Add(this.ucSettings1);
             this.panel_content.Location = new System.Drawing.Point(0, 185);
             this.panel_content.Name = "panel_content";
             this.panel_content.Size = new System.Drawing.Size(585, 280);
             this.panel_content.TabIndex = 2;
             // 
-            // mf_pictureBox_contacts
+            // ucAddressBook1
             // 
-            this.mf_pictureBox_contacts.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.mf_pictureBox_contacts.BackgroundImage = global::DarkMessenger.Properties.Resources.book_w;
-            this.mf_pictureBox_contacts.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.mf_pictureBox_contacts.Location = new System.Drawing.Point(0, 54);
-            this.mf_pictureBox_contacts.Name = "mf_pictureBox_contacts";
-            this.mf_pictureBox_contacts.Size = new System.Drawing.Size(64, 64);
-            this.mf_pictureBox_contacts.TabIndex = 0;
-            this.mf_pictureBox_contacts.TabStop = false;
-            this.mf_pictureBox_contacts.MouseLeave += new System.EventHandler(this.mf_pictureBox_contacts_MouseLeave);
-            this.mf_pictureBox_contacts.MouseHover += new System.EventHandler(this.pictureBox1_MouseHover);
-            // 
-            // mf_panel_contactsMiniPane
-            // 
-            this.mf_panel_contactsMiniPane.Controls.Add(this.mf_pictureBox_contacts);
-            this.mf_panel_contactsMiniPane.Dock = System.Windows.Forms.DockStyle.Right;
-            this.mf_panel_contactsMiniPane.Location = new System.Drawing.Point(231, 0);
-            this.mf_panel_contactsMiniPane.Name = "mf_panel_contactsMiniPane";
-            this.mf_panel_contactsMiniPane.Size = new System.Drawing.Size(125, 181);
-            this.mf_panel_contactsMiniPane.TabIndex = 5;
+            this.ucAddressBook1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.ucAddressBook1.Location = new System.Drawing.Point(0, 0);
+            this.ucAddressBook1.Name = "ucAddressBook1";
+            this.ucAddressBook1.Size = new System.Drawing.Size(580, 275);
+            this.ucAddressBook1.TabIndex = 1;
+            this.ucAddressBook1.Visible = false;
             // 
             // ucSettings1
             // 
@@ -225,6 +237,8 @@
             this.Text = "DarkMessenger";
             this.mf_panel_user.ResumeLayout(false);
             this.mf_panel_user.PerformLayout();
+            this.mf_panel_contactsMiniPane.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.mf_pictureBox_contacts)).EndInit();
             this.mf_panel_MessMiniPane.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.mf_pictureBox_message)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mf_pictureBox_avatarFront)).EndInit();
@@ -235,8 +249,6 @@
             this.statusStrip1.PerformLayout();
             this.panel_content.ResumeLayout(false);
             this.panel_content.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.mf_pictureBox_contacts)).EndInit();
-            this.mf_panel_contactsMiniPane.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -260,5 +272,6 @@
 
         private string avatar;
         private int skin=0;
+        private ucAddressBook ucAddressBook1;
     }
 }

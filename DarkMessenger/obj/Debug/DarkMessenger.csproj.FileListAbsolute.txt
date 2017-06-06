@@ -3,10 +3,11 @@ D:\=MAKING OF=\DarkMessenger\DarkMessenger\bin\Debug\DarkMessenger.exe
 D:\=MAKING OF=\DarkMessenger\DarkMessenger\bin\Debug\DarkMessenger.pdb
 D:\=MAKING OF=\DarkMessenger\DarkMessenger\bin\Debug\Tor.dll
 D:\=MAKING OF=\DarkMessenger\DarkMessenger\bin\Debug\Tor.pdb
-D:\=MAKING OF=\DarkMessenger\DarkMessenger\obj\Debug\DarkMessenger.csprojResolveAssemblyReference.cache
 D:\=MAKING OF=\DarkMessenger\DarkMessenger\obj\Debug\DarkMessenger.Properties.Resources.resources
 D:\=MAKING OF=\DarkMessenger\DarkMessenger\obj\Debug\DarkMessenger.csproj.GenerateResource.Cache
 D:\=MAKING OF=\DarkMessenger\DarkMessenger\obj\Debug\DarkMessenger.exe
 D:\=MAKING OF=\DarkMessenger\DarkMessenger\obj\Debug\DarkMessenger.pdb
 D:\=MAKING OF=\DarkMessenger\DarkMessenger\obj\Debug\DarkMessenger.frmMainUI.resources
 D:\=MAKING OF=\DarkMessenger\DarkMessenger\obj\Debug\DarkMessenger.ucSettings.resources
+D:\=MAKING OF=\DarkMessenger\DarkMessenger\obj\Debug\DarkMessenger.ucAddressBook.resources
+D:\=MAKING OF=\DarkMessenger\DarkMessenger\obj\Debug\DarkMessenger.csprojResolveAssemblyReference.cache

@@ -53,7 +53,7 @@
             // 
             this.uc_label_skin.AutoSize = true;
             this.uc_label_skin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.uc_label_skin.Location = new System.Drawing.Point(54, 44);
+            this.uc_label_skin.Location = new System.Drawing.Point(62, 44);
             this.uc_label_skin.Name = "uc_label_skin";
             this.uc_label_skin.Size = new System.Drawing.Size(42, 16);
             this.uc_label_skin.TabIndex = 0;
@@ -66,7 +66,7 @@
             "Niebieski",
             "Zielony",
             "Szary"});
-            this.uc_comboBox_skin.Location = new System.Drawing.Point(143, 43);
+            this.uc_comboBox_skin.Location = new System.Drawing.Point(166, 43);
             this.uc_comboBox_skin.Name = "uc_comboBox_skin";
             this.uc_comboBox_skin.Size = new System.Drawing.Size(312, 21);
             this.uc_comboBox_skin.TabIndex = 1;
@@ -75,7 +75,7 @@
             // 
             this.uc_label_serwer.AutoSize = true;
             this.uc_label_serwer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.uc_label_serwer.Location = new System.Drawing.Point(6, 35);
+            this.uc_label_serwer.Location = new System.Drawing.Point(29, 35);
             this.uc_label_serwer.Name = "uc_label_serwer";
             this.uc_label_serwer.Size = new System.Drawing.Size(136, 15);
             this.uc_label_serwer.TabIndex = 2;
@@ -95,7 +95,7 @@
             // 
             // uc_textbox_serwer
             // 
-            this.uc_textbox_serwer.Location = new System.Drawing.Point(143, 34);
+            this.uc_textbox_serwer.Location = new System.Drawing.Point(166, 34);
             this.uc_textbox_serwer.Name = "uc_textbox_serwer";
             this.uc_textbox_serwer.Size = new System.Drawing.Size(312, 20);
             this.uc_textbox_serwer.TabIndex = 3;
@@ -198,15 +198,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoScroll = true;
             this.AutoSize = true;
-            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.Controls.Add(this.uc_button_cancel);
             this.Controls.Add(this.uc_button_save);
             this.Controls.Add(this.uc_groupBox_dessign);
             this.Controls.Add(this.uc_groupBox_avatar);
             this.Controls.Add(this.uc_groupBox_settings);
             this.Name = "ucSettings";
-            this.Size = new System.Drawing.Size(580, 591);
+            this.Size = new System.Drawing.Size(580, 500);
             this.Load += new System.EventHandler(this.ucSettings_Load);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.ucSettings_Paint);
             this.uc_groupBox_settings.ResumeLayout(false);
             this.uc_groupBox_settings.PerformLayout();
             this.uc_groupBox_avatar.ResumeLayout(false);

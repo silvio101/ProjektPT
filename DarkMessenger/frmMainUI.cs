@@ -40,6 +40,7 @@ namespace DarkMessenger
         private void pictureBox_settings_Click(object sender, EventArgs e)
         {
             this.ucSettings1.Visible = true;
+            this.ucAddressBook1.Visible=false;
         }
 
         private void mf_pictureBox_avatar_Click(object sender, EventArgs e)
@@ -65,6 +66,12 @@ namespace DarkMessenger
         private void mf_pictureBox_contacts_MouseLeave(object sender, EventArgs e)
         {
             this.mf_pictureBox_contacts.Image = Properties.Resources.book_w;
+        }
+
+        private void mf_pictureBox_contacts_Click(object sender, EventArgs e)
+        {
+            this.ucAddressBook1.Visible=true;
+            this.ucSettings1.Visible=false;
         }
         
     }
