@@ -1,5 +1,5 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="DarkMessenger.Properties" GeneratedClassName="Settings">
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="PT_Messenger.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
     <Setting Name="avatar" Type="System.String" Scope="User">
@@ -9,7 +9,7 @@
       <Value Profile="(Default)">1</Value>
     </Setting>
     <Setting Name="server" Type="System.String" Scope="User">
-      <Value Profile="(Default)">192.168.45.10</Value>
+      <Value Profile="(Default)">192.168.56.10</Value>
     </Setting>
   </Settings>
 </SettingsFile>

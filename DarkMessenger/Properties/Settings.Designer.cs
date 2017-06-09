@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DarkMessenger.Properties {
+namespace PT_Messenger.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
@@ -49,7 +49,7 @@ namespace DarkMessenger.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("192.168.45.10")]
+        [global::System.Configuration.DefaultSettingValueAttribute("192.168.56.10")]
         public string server {
             get {
                 return ((string)(this["server"]));

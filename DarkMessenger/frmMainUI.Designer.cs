@@ -1,4 +1,4 @@
-﻿namespace DarkMessenger
+﻿namespace PT_Messenger
 {
     partial class frmMainUI
     {
@@ -41,8 +41,8 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.mf_toolStripStatusLabel_polaczony = new System.Windows.Forms.ToolStripStatusLabel();
             this.panel_content = new System.Windows.Forms.Panel();
-            this.ucAddressBook1 = new DarkMessenger.ucAddressBook();
-            this.ucSettings1 = new DarkMessenger.ucSettings();
+            this.ucAddressBook1 = new PT_Messenger.ucAddressBook();
+            this.ucSettings1 = new PT_Messenger.ucSettings();
             this.mf_panel_user.SuspendLayout();
             this.mf_panel_contactsMiniPane.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mf_pictureBox_contacts)).BeginInit();
@@ -85,7 +85,7 @@
             // mf_pictureBox_contacts
             // 
             this.mf_pictureBox_contacts.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.mf_pictureBox_contacts.BackgroundImage = global::DarkMessenger.Properties.Resources.book_w;
+            this.mf_pictureBox_contacts.BackgroundImage = global::PT_Messenger.Properties.Resources.book_w;
             this.mf_pictureBox_contacts.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.mf_pictureBox_contacts.Location = new System.Drawing.Point(0, 54);
             this.mf_pictureBox_contacts.Name = "mf_pictureBox_contacts";
@@ -108,7 +108,7 @@
             // mf_pictureBox_message
             // 
             this.mf_pictureBox_message.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.mf_pictureBox_message.BackgroundImage = global::DarkMessenger.Properties.Resources.message_w;
+            this.mf_pictureBox_message.BackgroundImage = global::PT_Messenger.Properties.Resources.message_w;
             this.mf_pictureBox_message.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.mf_pictureBox_message.Location = new System.Drawing.Point(0, 54);
             this.mf_pictureBox_message.Name = "mf_pictureBox_message";
@@ -142,7 +142,7 @@
             // mf_pictureBox_settings
             // 
             this.mf_pictureBox_settings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.mf_pictureBox_settings.BackgroundImage = global::DarkMessenger.Properties.Resources.settings_w1;
+            this.mf_pictureBox_settings.BackgroundImage = global::PT_Messenger.Properties.Resources.settings_w1;
             this.mf_pictureBox_settings.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.mf_pictureBox_settings.Location = new System.Drawing.Point(0, 54);
             this.mf_pictureBox_settings.Name = "mf_pictureBox_settings";
@@ -156,7 +156,7 @@
             // mf_pictureBox_avatar
             // 
             this.mf_pictureBox_avatar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.mf_pictureBox_avatar.Image = global::DarkMessenger.Properties.Resources.unknown_person_100;
+            this.mf_pictureBox_avatar.Image = global::PT_Messenger.Properties.Resources.unknown_person_100;
             this.mf_pictureBox_avatar.Location = new System.Drawing.Point(35, 38);
             this.mf_pictureBox_avatar.Name = "mf_pictureBox_avatar";
             this.mf_pictureBox_avatar.Size = new System.Drawing.Size(100, 100);
@@ -182,11 +182,12 @@
             // 
             this.mf_toolStripStatusLabel_polaczony.AutoSize = false;
             this.mf_toolStripStatusLabel_polaczony.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.mf_toolStripStatusLabel_polaczony.Image = global::DarkMessenger.Properties.Resources.Disconnect_15;
+            this.mf_toolStripStatusLabel_polaczony.Image = global::PT_Messenger.Properties.Resources.Disconnect_15;
             this.mf_toolStripStatusLabel_polaczony.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.mf_toolStripStatusLabel_polaczony.Name = "mf_toolStripStatusLabel_polaczony";
             this.mf_toolStripStatusLabel_polaczony.Size = new System.Drawing.Size(120, 45);
             this.mf_toolStripStatusLabel_polaczony.Text = "Rozłączony";
+            this.mf_toolStripStatusLabel_polaczony.Click += new System.EventHandler(this.mf_toolStripStatusLabel_polaczony_Click);
             // 
             // panel_content
             // 
@@ -204,7 +205,7 @@
             // 
             // ucAddressBook1
             // 
-            this.ucAddressBook1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.ucAddressBook1.BackColor = System.Drawing.Color.Lime;
             this.ucAddressBook1.Location = new System.Drawing.Point(0, 0);
             this.ucAddressBook1.Name = "ucAddressBook1";
             this.ucAddressBook1.Size = new System.Drawing.Size(580, 275);
@@ -215,7 +216,7 @@
             // 
             this.ucSettings1.AutoScroll = true;
             this.ucSettings1.AutoSize = true;
-            this.ucSettings1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.ucSettings1.BackColor = System.Drawing.Color.Lime;
             this.ucSettings1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ucSettings1.Location = new System.Drawing.Point(0, 0);
             this.ucSettings1.Name = "ucSettings1";
@@ -270,8 +271,6 @@
         private System.Windows.Forms.Panel mf_panel_contactsMiniPane;
         private System.Windows.Forms.PictureBox mf_pictureBox_contacts;
 
-        private string avatar;
-        private int skin=0;
         private ucAddressBook ucAddressBook1;
     }
 }

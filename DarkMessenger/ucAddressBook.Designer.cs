@@ -1,4 +1,4 @@
-﻿namespace DarkMessenger
+﻿namespace PT_Messenger
 {
     partial class ucAddressBook
     {

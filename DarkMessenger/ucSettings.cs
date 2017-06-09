@@ -8,14 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace DarkMessenger
+namespace PT_Messenger
 {
     public partial class ucSettings : UserControl
     {
-        private DarkMessenger.contolers.DarkBL helper;
+        private PT_Messenger.contolers.HelperBL helper;
         public ucSettings()
         {   
-            helper = new contolers.DarkBL();
+            helper = new contolers.HelperBL();
             InitializeComponent();
         }
 
@@ -59,7 +59,7 @@ namespace DarkMessenger
             }
             catch
             {
-                MessageBox.Show("Problem z zapisem wyglądu do pliku konfiguracyjnego");
+                MessageBox.Show("Problem z zapisem wyglądu do pliku konfiguracyjnego", "Problem!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             this.Invalidate();
             
@@ -68,6 +68,20 @@ namespace DarkMessenger
         private void ucSettings_Paint(object sender, PaintEventArgs e)
         {
             this.BackColor = helper.whichColor();
+        }
+
+        private void uc_button_usun_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.uc_pictureBox_avatar.Image = Properties.Resources.unknown_person_100;
+                Properties.Settings.Default.avatar = "unknown_person_100";
+                Properties.Settings.Default.Save();
+            }
+            catch
+            {
+                MessageBox.Show("Nie można zmienić avatar'a, prawdopodobny błąd zapisu pliku konfiguracyjnego","Problem!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
 

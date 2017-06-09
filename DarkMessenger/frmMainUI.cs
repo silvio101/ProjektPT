@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace DarkMessenger
+namespace PT_Messenger
 {
     public partial class frmMainUI : Form
     {
-        
+        private Controlers.MessagerBL mssBL;   
         public frmMainUI()
         {
             InitializeComponent();
@@ -45,7 +45,7 @@ namespace DarkMessenger
 
         private void mf_pictureBox_avatar_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void mf_pictureBox_message_MouseHover(object sender, EventArgs e)
@@ -72,6 +72,27 @@ namespace DarkMessenger
         {
             this.ucAddressBook1.Visible=true;
             this.ucSettings1.Visible=false;
+        }
+
+        private void mf_toolStripStatusLabel_polaczony_Click(object sender, EventArgs e)
+        {
+            //TODO wznowienie połącznia
+            mssBL = new Controlers.MessagerBL(this,"silvio","trojan1");
+        }
+
+        public void changeConnState()
+        {
+            if (mssBL.isConnect)
+            {
+                this.mf_toolStripStatusLabel_polaczony.Image = Properties.Resources.Connect_15;
+                this.mf_toolStripStatusLabel_polaczony.Text = "Połączony";
+            }
+            else
+            {
+                this.mf_toolStripStatusLabel_polaczony.Image = Properties.Resources.Disconnect_15;
+                this.mf_toolStripStatusLabel_polaczony.Text = "Rozłączony";
+            }
+            
         }
         
     }

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DarkMessenger.contolers
+namespace PT_Messenger.contolers
 {
-    class DarkBL
+    class HelperBL
     {
         public System.Drawing.Color color;
         public void changeAvatar()
