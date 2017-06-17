@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PT_Messenger", "DarkMessenger\PT_Messenger.csproj", "{3B7A4496-7271-4F8D-80E0-49F3A3E8F617}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PT_Messenger", "PT_Messenger\PT_Messenger.csproj", "{3B7A4496-7271-4F8D-80E0-49F3A3E8F617}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
