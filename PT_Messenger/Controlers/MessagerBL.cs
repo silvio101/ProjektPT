@@ -11,15 +11,16 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
+
 namespace PT_Messenger.Controlers
 {
     public class MessagerBL
     {
-        private string login;
-        private string passwd;
-        private string username;
-        private string surname;
-        private string email;
+        public string login {get;set;}
+        public string passwd { get; set; }
+        public string username { get; set; }
+        public string surname { get; set; }
+        public string email { get; set; }
         public bool isConnect {get;set;}
         public bool isLogged { get;set;}
         public bool isRegistry { get; set; }
@@ -33,10 +34,12 @@ namespace PT_Messenger.Controlers
 
         public event EventHandler LoginNOK;
         public event EventHandler LoginOK;
+        public event EventHandler LoginDENY;
         public event EventHandler Disconnect;
         public event EventHandler Connected;
         public event EventHandler RegOK;
         public event EventHandler Login_exist;
+        public event EventHandler ServerError;
 
         public MessagerBL()
         {
@@ -53,6 +56,16 @@ namespace PT_Messenger.Controlers
                 tcp_thread = new Thread(new ThreadStart(ConnectInit));
                 tcp_thread.Start();
             } 
+        }
+        public void disconnect()
+        {
+            if(isConnect)
+            {
+                this.ssl_stream.Close();
+                this.tcp_client.Close();
+                this.tcp_thread.Abort();
+                this.isConnect=false;
+            }
         }
         public void ConnectInit()
         {
@@ -127,22 +140,94 @@ namespace PT_Messenger.Controlers
                     binWrite.Write(this.login);
                     binWrite.Write(hashPasswd(this.passwd));
                     binWrite.Flush();
-
-                    if(binRead.ReadString()=="LOGIN_SUCCESS")
+                    var ans = binRead.ReadString();
+                    switch (ans)
                     {
-                        OnLoginOK();
-                        this.isLogged=true;
+                        case "LOGIN_SUCCESS":
+                        {
+                            OnLoginOK();
+                            this.isLogged=true;
+                        }
+                            break;
+                        case "LOGIN_DENY":
+                            OnLoginDeny();
+                            break;
+                        case "LOGIN_UNSUCCESS":
+                            OnLoginNOK();
+                            break;
+                        case "500_ERROR":
+                            OnServerError();
+                            break;
+                        default:
+                            break;
+                        
                     }
-                    else
-                    {
-                        OnLoginNOK();
-                    }  
                 }
             }
             catch
             {
                 Console.WriteLine("Popsulo sie logowanie");
             }
+        }
+        public List<string> getUserInfo()
+        {
+            List<string> valsy = new List<string>();
+            binWrite.Write("GET_INFO");
+            valsy.Add(binRead.ReadString()); //login
+            valsy.Add(binRead.ReadString()); //imie
+            this.username = valsy.Last();
+            valsy.Add(binRead.ReadString()); //nazwisko
+            this.surname = valsy.Last();
+            valsy.Add(binRead.ReadString()); //email;
+            this.email = valsy.Last();
+            return valsy;
+        }
+        public bool setUserInfo(List<string> list)
+        {
+            binWrite.Write("SET_INFO");
+            binWrite.Write(list[0]); //imie
+            binWrite.Write(list[1]); //nazwisko
+            binWrite.Write(list[2]); //email
+            binWrite.Flush();
+            return binRead.ReadString()=="CHANGE_SUCCESS" ? true:false;
+        }
+        public List<string> checkUserDiff(List<string> B)
+        {
+            List<string> A = new List<string>();
+            A.Add(this.username);
+            A.Add(this.surname);
+            A.Add(this.email);
+            var C = A.Except(B).ToList();
+            return C;
+        }
+        public bool passChange(string newPasswd)
+        {
+            binWrite.Write("PASS_CHANGE");
+            binWrite.Write(hashPasswd(newPasswd));
+            binWrite.Flush();
+            return binRead.ReadString()=="CHANGE_PASS_SUCCESS" ? true: false;
+        }
+        public List<Person> searchPerson(Person who)
+        {
+            List<Person>result=new List<Person>();
+            binWrite.Write("SEARCH_PERSON");
+            binWrite.Write(who.login);
+            binWrite.Write(who.username);
+            binWrite.Write(who.surname);
+            binWrite.Write(who.email);
+
+            int persoCount=binRead.ReadInt32();
+            for(int i=0; i<persoCount; i++)
+            {
+                var p = new Person();
+                p.login=binRead.ReadString();
+                p.username=binRead.ReadString();
+                p.surname=binRead.ReadString();
+                p.email=binRead.ReadString();
+                result.Add(p);
+            }
+
+            return result;
         }
 
         public static bool CheckCert(object sender, X509Certificate cert, X509Chain chain, SslPolicyErrors sslPolicyErrors)
@@ -210,6 +295,16 @@ namespace PT_Messenger.Controlers
         {
             if(Login_exist!=null)
                 Login_exist(this,EventArgs.Empty);
+        }
+        virtual protected void OnLoginDeny()
+        {
+            if(LoginDENY!=null)
+                LoginDENY(this,EventArgs.Empty);
+        }
+        virtual protected void OnServerError()
+        {
+            if(ServerError != null)
+                ServerError(this,EventArgs.Empty);
         }
     }
 }

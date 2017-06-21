@@ -58,5 +58,17 @@ namespace PT_Messenger.Properties {
                 this["server"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("local")]
+        public string avatar_path {
+            get {
+                return ((string)(this["avatar_path"]));
+            }
+            set {
+                this["avatar_path"] = value;
+            }
+        }
     }
 }

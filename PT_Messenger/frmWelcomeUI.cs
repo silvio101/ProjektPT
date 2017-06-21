@@ -22,10 +22,12 @@ namespace PT_Messenger
             messBL.Disconnect += new EventHandler(Disconnect);
             messBL.LoginOK += new EventHandler(LoginOK);
             messBL.LoginNOK += new EventHandler(LoginNOK);
+            messBL.LoginDENY += new EventHandler(LoginDANY);
             messBL.RegOK += new EventHandler(RegistryOK);
             messBL.Login_exist += new EventHandler(LoginExist);
+            messBL.ServerError += new EventHandler(ServerError);
 
-            this.frm2_timer.Interval = 2000;
+            this.frm2_timer.Interval = 800;
             this.frm2_timer.Tick+= new EventHandler(timer_Tick);
             this.frm2_timer.Start();
         }
@@ -109,7 +111,7 @@ namespace PT_Messenger
         {
             if (validateP2LogIn())
             {
-                String login, pass;
+                string login, pass;
                 login = this.frm2_p2_textBox_login.Text;
                 pass = this.frm2_p2_textBox_haslo.Text;
                 messBL.Login(login,pass);
@@ -278,8 +280,10 @@ namespace PT_Messenger
                 this.Text = "PT Messenger - Welcome (Disconnented)";
                 this.frm2_p1_button_zaloguj.Enabled = false;
                 this.frm2_p1_button_zarejestruj.Enabled = false;
-                this.frm2_timer.Interval = 1000;
+                this.frm2_timer.Interval = 2000;
+                this.frm2_timer.Start();
                 this.frm2_p2_label_serwernie.Visible = true;
+                
             }));
         }
         private void LoginOK(object sender, EventArgs e)
@@ -298,6 +302,18 @@ namespace PT_Messenger
                 this.cleanLogForm();
             }));
         }
+        private void LoginDANY(object sender, EventArgs e)
+        {
+            this.BeginInvoke(new MethodInvoker(delegate{
+                MessageBox.Show("Logowanie zablokowane przez godzine!","Problem!",MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.cleanLogForm();
+                this.frm2_panel3.Hide();
+                this.frm2_panel2.Hide();
+                this.frm2_panel1.Show();
+                this.messBL.disconnect();
+                this.Disconnect(this, EventArgs.Empty);
+            }));
+        }
         private void RegistryOK(object sender, EventArgs e)
         {
             this.BeginInvoke(new MethodInvoker(delegate{
@@ -311,6 +327,18 @@ namespace PT_Messenger
             this.BeginInvoke(new MethodInvoker(delegate{
                 this.frm2_p2_errorProvider.SetError(frm2_p3_label_login,"Login jest już zajęty");
                 this.frm2_p3_textBox_login.BackColor = System.Drawing.Color.Red;
+            }));
+        }
+        private void ServerError(object sender, EventArgs e)
+        {
+            this.BeginInvoke(new MethodInvoker(delegate{
+                MessageBox.Show("Wystąpił błąd serwera, nastąpiło wylogowanie","Problem!",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                this.frm2_panel3.Hide();
+                this.frm2_panel2.Hide();
+                this.frm2_panel1.Show();
+                this.cleanLogForm();
+                this.messBL.disconnect();
+                this.Disconnect(this,EventArgs.Empty);
             }));
         }
 

@@ -216,6 +216,7 @@
             this.frm2_p2_textBox_login.Name = "frm2_p2_textBox_login";
             this.frm2_p2_textBox_login.Size = new System.Drawing.Size(188, 22);
             this.frm2_p2_textBox_login.TabIndex = 13;
+            this.frm2_p2_textBox_login.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frm2_p2_textBox_haslo_KeyDown);
             // 
             // frm2_p2_label_haslo
             // 

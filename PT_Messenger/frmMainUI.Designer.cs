@@ -31,29 +31,29 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMainUI));
             this.mf_panel_user = new System.Windows.Forms.Panel();
             this.mf_panel_contactsMiniPane = new System.Windows.Forms.Panel();
-            this.mf_panel_MessMiniPane = new System.Windows.Forms.Panel();
-            this.mf_panel_settMiniPane = new System.Windows.Forms.Panel();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.panel_content = new System.Windows.Forms.Panel();
-            this.ucAddressBook1 = new PT_Messenger.ucAddressBook();
-            this.ucSettings1 = new PT_Messenger.ucSettings();
-            this.mf_toolStripStatusLabel_polaczony = new System.Windows.Forms.ToolStripStatusLabel();
             this.mf_pictureBox_contacts = new System.Windows.Forms.PictureBox();
+            this.mf_panel_MessMiniPane = new System.Windows.Forms.Panel();
             this.mf_pictureBox_message = new System.Windows.Forms.PictureBox();
             this.mf_pictureBox_avatarFront = new System.Windows.Forms.PictureBox();
+            this.mf_panel_settMiniPane = new System.Windows.Forms.Panel();
             this.mf_pictureBox_settings = new System.Windows.Forms.PictureBox();
             this.mf_pictureBox_avatar = new System.Windows.Forms.PictureBox();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.mf_toolStripStatusLabel_polaczony = new System.Windows.Forms.ToolStripStatusLabel();
+            this.panel_content = new System.Windows.Forms.Panel();
+            this.ucSettings1 = new PT_Messenger.ucSettings();
+            this.ucAddressBook1 = new PT_Messenger.ucAddressBook();
             this.mf_panel_user.SuspendLayout();
             this.mf_panel_contactsMiniPane.SuspendLayout();
-            this.mf_panel_MessMiniPane.SuspendLayout();
-            this.mf_panel_settMiniPane.SuspendLayout();
-            this.statusStrip1.SuspendLayout();
-            this.panel_content.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mf_pictureBox_contacts)).BeginInit();
+            this.mf_panel_MessMiniPane.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mf_pictureBox_message)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mf_pictureBox_avatarFront)).BeginInit();
+            this.mf_panel_settMiniPane.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mf_pictureBox_settings)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mf_pictureBox_avatar)).BeginInit();
+            this.statusStrip1.SuspendLayout();
+            this.panel_content.SuspendLayout();
             this.SuspendLayout();
             // 
             // mf_panel_user
@@ -82,88 +82,6 @@
             this.mf_panel_contactsMiniPane.Size = new System.Drawing.Size(125, 181);
             this.mf_panel_contactsMiniPane.TabIndex = 5;
             // 
-            // mf_panel_MessMiniPane
-            // 
-            this.mf_panel_MessMiniPane.Controls.Add(this.mf_pictureBox_message);
-            this.mf_panel_MessMiniPane.Dock = System.Windows.Forms.DockStyle.Right;
-            this.mf_panel_MessMiniPane.Location = new System.Drawing.Point(356, 0);
-            this.mf_panel_MessMiniPane.Name = "mf_panel_MessMiniPane";
-            this.mf_panel_MessMiniPane.Size = new System.Drawing.Size(125, 181);
-            this.mf_panel_MessMiniPane.TabIndex = 4;
-            // 
-            // mf_panel_settMiniPane
-            // 
-            this.mf_panel_settMiniPane.Controls.Add(this.mf_pictureBox_settings);
-            this.mf_panel_settMiniPane.Dock = System.Windows.Forms.DockStyle.Right;
-            this.mf_panel_settMiniPane.Location = new System.Drawing.Point(481, 0);
-            this.mf_panel_settMiniPane.Name = "mf_panel_settMiniPane";
-            this.mf_panel_settMiniPane.Size = new System.Drawing.Size(100, 181);
-            this.mf_panel_settMiniPane.TabIndex = 1;
-            // 
-            // statusStrip1
-            // 
-            this.statusStrip1.AutoSize = false;
-            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mf_toolStripStatusLabel_polaczony});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 461);
-            this.statusStrip1.MinimumSize = new System.Drawing.Size(0, 50);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.statusStrip1.Size = new System.Drawing.Size(584, 50);
-            this.statusStrip1.TabIndex = 1;
-            this.statusStrip1.Text = "statusStrip1";
-            // 
-            // panel_content
-            // 
-            this.panel_content.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel_content.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.panel_content.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel_content.Controls.Add(this.ucAddressBook1);
-            this.panel_content.Controls.Add(this.ucSettings1);
-            this.panel_content.Location = new System.Drawing.Point(0, 185);
-            this.panel_content.Name = "panel_content";
-            this.panel_content.Size = new System.Drawing.Size(585, 280);
-            this.panel_content.TabIndex = 2;
-            // 
-            // ucAddressBook1
-            // 
-            this.ucAddressBook1.AutoSize = true;
-            this.ucAddressBook1.BackColor = System.Drawing.Color.Lime;
-            this.ucAddressBook1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ucAddressBook1.Location = new System.Drawing.Point(0, 0);
-            this.ucAddressBook1.Margin = new System.Windows.Forms.Padding(4);
-            this.ucAddressBook1.Name = "ucAddressBook1";
-            this.ucAddressBook1.Size = new System.Drawing.Size(581, 276);
-            this.ucAddressBook1.TabIndex = 1;
-            this.ucAddressBook1.Visible = false;
-            // 
-            // ucSettings1
-            // 
-            this.ucSettings1.AutoScroll = true;
-            this.ucSettings1.AutoSize = true;
-            this.ucSettings1.BackColor = System.Drawing.Color.Lime;
-            this.ucSettings1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ucSettings1.Location = new System.Drawing.Point(0, 0);
-            this.ucSettings1.Margin = new System.Windows.Forms.Padding(4);
-            this.ucSettings1.Name = "ucSettings1";
-            this.ucSettings1.Size = new System.Drawing.Size(581, 276);
-            this.ucSettings1.TabIndex = 0;
-            this.ucSettings1.Visible = false;
-            // 
-            // mf_toolStripStatusLabel_polaczony
-            // 
-            this.mf_toolStripStatusLabel_polaczony.AutoSize = false;
-            this.mf_toolStripStatusLabel_polaczony.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.mf_toolStripStatusLabel_polaczony.Image = global::PT_Messenger.Properties.Resources.Disconnect_15;
-            this.mf_toolStripStatusLabel_polaczony.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.mf_toolStripStatusLabel_polaczony.Name = "mf_toolStripStatusLabel_polaczony";
-            this.mf_toolStripStatusLabel_polaczony.Size = new System.Drawing.Size(120, 45);
-            this.mf_toolStripStatusLabel_polaczony.Text = "Rozłączony";
-            this.mf_toolStripStatusLabel_polaczony.Click += new System.EventHandler(this.mf_toolStripStatusLabel_polaczony_Click);
-            // 
             // mf_pictureBox_contacts
             // 
             this.mf_pictureBox_contacts.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -177,6 +95,15 @@
             this.mf_pictureBox_contacts.Click += new System.EventHandler(this.mf_pictureBox_contacts_Click);
             this.mf_pictureBox_contacts.MouseLeave += new System.EventHandler(this.mf_pictureBox_contacts_MouseLeave);
             this.mf_pictureBox_contacts.MouseHover += new System.EventHandler(this.pictureBox1_MouseHover);
+            // 
+            // mf_panel_MessMiniPane
+            // 
+            this.mf_panel_MessMiniPane.Controls.Add(this.mf_pictureBox_message);
+            this.mf_panel_MessMiniPane.Dock = System.Windows.Forms.DockStyle.Right;
+            this.mf_panel_MessMiniPane.Location = new System.Drawing.Point(356, 0);
+            this.mf_panel_MessMiniPane.Name = "mf_panel_MessMiniPane";
+            this.mf_panel_MessMiniPane.Size = new System.Drawing.Size(125, 181);
+            this.mf_panel_MessMiniPane.TabIndex = 4;
             // 
             // mf_pictureBox_message
             // 
@@ -202,6 +129,16 @@
             this.mf_pictureBox_avatarFront.Size = new System.Drawing.Size(100, 100);
             this.mf_pictureBox_avatarFront.TabIndex = 3;
             this.mf_pictureBox_avatarFront.TabStop = false;
+            this.mf_pictureBox_avatarFront.Click += new System.EventHandler(this.mf_pictureBox_avatarFront_Click);
+            // 
+            // mf_panel_settMiniPane
+            // 
+            this.mf_panel_settMiniPane.Controls.Add(this.mf_pictureBox_settings);
+            this.mf_panel_settMiniPane.Dock = System.Windows.Forms.DockStyle.Right;
+            this.mf_panel_settMiniPane.Location = new System.Drawing.Point(481, 0);
+            this.mf_panel_settMiniPane.Name = "mf_panel_settMiniPane";
+            this.mf_panel_settMiniPane.Size = new System.Drawing.Size(100, 181);
+            this.mf_panel_settMiniPane.TabIndex = 1;
             // 
             // mf_pictureBox_settings
             // 
@@ -224,37 +161,102 @@
             this.mf_pictureBox_avatar.Location = new System.Drawing.Point(35, 38);
             this.mf_pictureBox_avatar.Name = "mf_pictureBox_avatar";
             this.mf_pictureBox_avatar.Size = new System.Drawing.Size(100, 100);
-            this.mf_pictureBox_avatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.mf_pictureBox_avatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.mf_pictureBox_avatar.TabIndex = 2;
             this.mf_pictureBox_avatar.TabStop = false;
-            this.mf_pictureBox_avatar.Click += new System.EventHandler(this.mf_pictureBox_avatar_Click);
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.AutoSize = false;
+            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mf_toolStripStatusLabel_polaczony});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 531);
+            this.statusStrip1.MinimumSize = new System.Drawing.Size(0, 50);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+            this.statusStrip1.Size = new System.Drawing.Size(584, 50);
+            this.statusStrip1.TabIndex = 1;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // mf_toolStripStatusLabel_polaczony
+            // 
+            this.mf_toolStripStatusLabel_polaczony.AutoSize = false;
+            this.mf_toolStripStatusLabel_polaczony.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.mf_toolStripStatusLabel_polaczony.Image = global::PT_Messenger.Properties.Resources.Disconnect_15;
+            this.mf_toolStripStatusLabel_polaczony.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.mf_toolStripStatusLabel_polaczony.Name = "mf_toolStripStatusLabel_polaczony";
+            this.mf_toolStripStatusLabel_polaczony.Size = new System.Drawing.Size(120, 45);
+            this.mf_toolStripStatusLabel_polaczony.Text = "Rozłączony";
+            this.mf_toolStripStatusLabel_polaczony.Click += new System.EventHandler(this.mf_toolStripStatusLabel_polaczony_Click);
+            // 
+            // panel_content
+            // 
+            this.panel_content.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel_content.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.panel_content.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel_content.Controls.Add(this.ucSettings1);
+            this.panel_content.Controls.Add(this.ucAddressBook1);
+            this.panel_content.Location = new System.Drawing.Point(0, 185);
+            this.panel_content.Name = "panel_content";
+            this.panel_content.Size = new System.Drawing.Size(585, 350);
+            this.panel_content.TabIndex = 2;
+            // 
+            // ucSettings1
+            // 
+            this.ucSettings1.AutoScroll = true;
+            this.ucSettings1.AutoSize = true;
+            this.ucSettings1.BackColor = System.Drawing.Color.Lime;
+            this.ucSettings1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ucSettings1.Location = new System.Drawing.Point(0, 0);
+            this.ucSettings1.Margin = new System.Windows.Forms.Padding(4);
+            this.ucSettings1.Name = "ucSettings1";
+            this.ucSettings1.Size = new System.Drawing.Size(581, 346);
+            this.ucSettings1.TabIndex = 0;
+            this.ucSettings1.Visible = false;
+            // 
+            // ucAddressBook1
+            // 
+            this.ucAddressBook1.AutoScroll = true;
+            this.ucAddressBook1.AutoSize = true;
+            this.ucAddressBook1.BackColor = System.Drawing.Color.Lime;
+            this.ucAddressBook1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ucAddressBook1.Location = new System.Drawing.Point(0, 0);
+            this.ucAddressBook1.Margin = new System.Windows.Forms.Padding(4);
+            this.ucAddressBook1.messBL = null;
+            this.ucAddressBook1.Name = "ucAddressBook1";
+            this.ucAddressBook1.result = null;
+            this.ucAddressBook1.Size = new System.Drawing.Size(581, 346);
+            this.ucAddressBook1.TabIndex = 1;
+            this.ucAddressBook1.Visible = false;
             // 
             // frmMainUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(584, 511);
+            this.ClientSize = new System.Drawing.Size(584, 581);
             this.Controls.Add(this.panel_content);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.mf_panel_user);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(600, 398);
+            this.MinimumSize = new System.Drawing.Size(600, 620);
             this.Name = "frmMainUI";
             this.Text = "PT_Messenger";
             this.mf_panel_user.ResumeLayout(false);
-            this.mf_panel_user.PerformLayout();
             this.mf_panel_contactsMiniPane.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.mf_pictureBox_contacts)).EndInit();
             this.mf_panel_MessMiniPane.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.mf_pictureBox_message)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mf_pictureBox_avatarFront)).EndInit();
             this.mf_panel_settMiniPane.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.mf_pictureBox_settings)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mf_pictureBox_avatar)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.panel_content.ResumeLayout(false);
             this.panel_content.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.mf_pictureBox_contacts)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mf_pictureBox_message)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mf_pictureBox_avatarFront)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mf_pictureBox_settings)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mf_pictureBox_avatar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -268,7 +270,6 @@
         private System.Windows.Forms.Panel panel_content;
         private System.Windows.Forms.PictureBox mf_pictureBox_settings;
         private System.Windows.Forms.Panel mf_panel_settMiniPane;
-        private ucSettings ucSettings1;
         private System.Windows.Forms.PictureBox mf_pictureBox_avatar;
         private System.Windows.Forms.PictureBox mf_pictureBox_avatarFront;
         private System.Windows.Forms.Panel mf_panel_MessMiniPane;
@@ -277,5 +278,7 @@
         private System.Windows.Forms.PictureBox mf_pictureBox_contacts;
 
         private ucAddressBook ucAddressBook1;
+        private ucSettings ucSettings1;
+        
     }
 }
