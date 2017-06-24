@@ -21,6 +21,7 @@ namespace PT_Messenger.Controlers
         public string username { get; set; }
         public string surname { get; set; }
         public string email { get; set; }
+        public string database { get; set;}
         public bool isConnect {get;set;}
         public bool isLogged { get;set;}
         public bool isRegistry { get; set; }
@@ -132,6 +133,7 @@ namespace PT_Messenger.Controlers
         {
             this.passwd = pass;
             this.login = login;
+            this.database = "Messenger." + login + ".db";
             try
             {
                 if (!isLogged)
@@ -229,7 +231,51 @@ namespace PT_Messenger.Controlers
 
             return result;
         }
-
+        public int howManyActUser()
+        {
+            try
+            {
+                binWrite.Write("HOW_MANY");
+                return binRead.ReadInt32();
+            }
+            catch
+            {
+                return -1;
+            }
+            
+        }
+        public bool msgSend(string dst, string text)
+        {
+            var ts = DateTime.Now;
+            binWrite.Write("MSG");
+            binWrite.Write(dst);
+            binWrite.Write(text);
+            binWrite.Write(ts.ToString());
+            binWrite.Flush();
+            
+            if(binRead.ReadString()!="MSG_ACCEPT")
+                return false;
+            else
+                return true;
+        }
+        public List<Convers> anyNewMsg()
+        {
+            binWrite.Write("ANY_MSG");
+            if(binRead.ReadString()!="NEW_MSG")
+                return null;
+            List<Convers> cL = new List<Convers>();
+            int k = binRead.ReadInt32();
+            for(int i=0; i<k; i++)
+            {
+                Convers c = new Convers();
+                c.dst_login = this.login;
+                c.src_login = binRead.ReadString();
+                c.texts = binRead.ReadString();
+                c.date = DateTime.Parse(binRead.ReadString());
+                cL.Add(c);
+            }
+            return cL;
+        }
         public static bool CheckCert(object sender, X509Certificate cert, X509Chain chain, SslPolicyErrors sslPolicyErrors)
         {
             //return (sslPolicyErrors == SslPolicyErrors.None ? true : false);

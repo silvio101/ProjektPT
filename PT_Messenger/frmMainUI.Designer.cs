@@ -1,4 +1,5 @@
-﻿namespace PT_Messenger
+﻿using System.Windows.Forms;
+namespace PT_Messenger
 {
     partial class frmMainUI
     {
@@ -28,6 +29,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMainUI));
             this.mf_panel_user = new System.Windows.Forms.Panel();
             this.mf_panel_contactsMiniPane = new System.Windows.Forms.Panel();
@@ -40,9 +42,11 @@
             this.mf_pictureBox_avatar = new System.Windows.Forms.PictureBox();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.mf_toolStripStatusLabel_polaczony = new System.Windows.Forms.ToolStripStatusLabel();
+            this.timer = new System.Windows.Forms.Timer(this.components);
             this.panel_content = new System.Windows.Forms.Panel();
             this.ucSettings1 = new PT_Messenger.ucSettings();
             this.ucAddressBook1 = new PT_Messenger.ucAddressBook();
+            this.ucMessage1 = new PT_Messenger.ucMessage(this);
             this.mf_panel_user.SuspendLayout();
             this.mf_panel_contactsMiniPane.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mf_pictureBox_contacts)).BeginInit();
@@ -115,6 +119,7 @@
             this.mf_pictureBox_message.Size = new System.Drawing.Size(64, 64);
             this.mf_pictureBox_message.TabIndex = 0;
             this.mf_pictureBox_message.TabStop = false;
+            this.mf_pictureBox_message.Click += new System.EventHandler(this.mf_pictureBox_message_Click);
             this.mf_pictureBox_message.MouseLeave += new System.EventHandler(this.mf_pictureBox_message_MouseLeave);
             this.mf_pictureBox_message.MouseHover += new System.EventHandler(this.mf_pictureBox_message_MouseHover);
             // 
@@ -123,7 +128,7 @@
             this.mf_pictureBox_avatarFront.BackColor = System.Drawing.Color.Transparent;
             this.mf_pictureBox_avatarFront.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.mf_pictureBox_avatarFront.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.mf_pictureBox_avatarFront.Image = global::PT_Messenger.Properties.Resources.circle2;
+            this.mf_pictureBox_avatarFront.Image = global::PT_Messenger.Properties.Resources.circle;
             this.mf_pictureBox_avatarFront.Location = new System.Drawing.Point(43, 54);
             this.mf_pictureBox_avatarFront.Name = "mf_pictureBox_avatarFront";
             this.mf_pictureBox_avatarFront.Size = new System.Drawing.Size(100, 100);
@@ -199,16 +204,16 @@
             this.panel_content.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel_content.Controls.Add(this.ucSettings1);
             this.panel_content.Controls.Add(this.ucAddressBook1);
+            this.panel_content.Controls.Add(this.ucMessage1);
             this.panel_content.Location = new System.Drawing.Point(0, 185);
             this.panel_content.Name = "panel_content";
-            this.panel_content.Size = new System.Drawing.Size(585, 350);
+            this.panel_content.Size = new System.Drawing.Size(585, 410);
             this.panel_content.TabIndex = 2;
             // 
             // ucSettings1
             // 
             this.ucSettings1.AutoScroll = true;
             this.ucSettings1.AutoSize = true;
-            this.ucSettings1.BackColor = System.Drawing.Color.Lime;
             this.ucSettings1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ucSettings1.Location = new System.Drawing.Point(0, 0);
             this.ucSettings1.Margin = new System.Windows.Forms.Padding(4);
@@ -221,7 +226,6 @@
             // 
             this.ucAddressBook1.AutoScroll = true;
             this.ucAddressBook1.AutoSize = true;
-            this.ucAddressBook1.BackColor = System.Drawing.Color.Lime;
             this.ucAddressBook1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ucAddressBook1.Location = new System.Drawing.Point(0, 0);
             this.ucAddressBook1.Margin = new System.Windows.Forms.Padding(4);
@@ -231,6 +235,18 @@
             this.ucAddressBook1.Size = new System.Drawing.Size(581, 346);
             this.ucAddressBook1.TabIndex = 1;
             this.ucAddressBook1.Visible = false;
+            //
+            //ucMessage1
+            //
+            this.ucMessage1.AutoScroll = true;
+            this.ucMessage1.AutoSize = true;
+            this.ucMessage1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ucMessage1.Location = new System.Drawing.Point(0,0);
+            this.ucMessage1.Margin = new System.Windows.Forms.Padding(4);
+            this.ucMessage1.Name = "ucMessage1";
+            this.ucMessage1.Size = new System.Drawing.Size(581,346);
+            this.ucMessage1.TabIndex = 2;
+            this.ucMessage1.Visible = true;
             // 
             // frmMainUI
             // 
@@ -241,7 +257,8 @@
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.mf_panel_user);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(600, 620);
+            this.MinimumSize = new System.Drawing.Size(600, 680);
+            this.MaximumSize = new System.Drawing.Size(600, Screen.PrimaryScreen.Bounds.Height);
             this.Name = "frmMainUI";
             this.Text = "PT_Messenger";
             this.mf_panel_user.ResumeLayout(false);
@@ -262,6 +279,8 @@
 
         }
 
+
+
         #endregion
 
         private System.Windows.Forms.Panel mf_panel_user;
@@ -276,9 +295,11 @@
         private System.Windows.Forms.PictureBox mf_pictureBox_message;
         private System.Windows.Forms.Panel mf_panel_contactsMiniPane;
         private System.Windows.Forms.PictureBox mf_pictureBox_contacts;
+        private System.Windows.Forms.Timer timer;
 
         private ucAddressBook ucAddressBook1;
         private ucSettings ucSettings1;
+        private ucMessage ucMessage1;
         
     }
 }

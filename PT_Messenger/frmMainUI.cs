@@ -1,8 +1,10 @@
-﻿using System;
+﻿using LiteDB;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,7 +16,7 @@ namespace PT_Messenger
     {
         public Controlers.MessagerBL messBL { get;set;}
         public frmWelcomeUI parentFrm;
-
+        private string database;
         private List<string> userinfo;
         
         public int counter=0;
@@ -23,17 +25,45 @@ namespace PT_Messenger
         {
             this.messBL = m;
             this.parentFrm = parentFrm;
+            this.database = m.database;
             InitializeComponent();
-            if(PT_Messenger.Properties.Settings.Default.avatar_path!="local") mf_pictureBox_avatar.Image = Image.FromFile(Properties.Settings.Default.avatar_path);
+            reloadAvatar();
+            
             mf_pictureBox_avatar.Controls.Add(mf_pictureBox_avatarFront);
             mf_pictureBox_avatarFront.Location=new Point(0,0);
             mf_pictureBox_avatarFront.BackColor = Color.Transparent;
+            this.timer.Interval=3000;
+            this.timer.Tick += new EventHandler(timer_Tick);
+            this.timer.Start();
 
             this.ucSettings1.changeAvatar += new EventHandler(ChangeAvatar);
+            this.ucAddressBook1.addPersonToConvers += new EventHandler(AddPersonToConvers);
         }
+
+        private void reloadAvatar()
+        {
+            using (var db = new LiteDatabase(this.database))
+            {
+                var stream = db.FileStorage.FindById("avatar");
+                if (stream != null)
+                {
+                    using (FileStream fs = File.Create(@"tmp"))
+                    {
+                        stream.CopyTo(fs);
+                        this.mf_pictureBox_avatar.Image = Image.FromStream(fs);
+                    }
+                }
+                else
+                {
+                    this.mf_pictureBox_avatar.Image = Properties.Resources.unknown_person_100;
+                }
+            }
+        }
+
         protected override void OnClosed(EventArgs e)
         {
             //this.parentFrm.Show();
+            this.messBL.disconnect();
             this.parentFrm.Dispose();
             base.OnClosed(e);
         }
@@ -42,6 +72,7 @@ namespace PT_Messenger
             userinfo = messBL.getUserInfo();
             this.ucSettings1.setUserInfo(userinfo[0],userinfo[1],userinfo[2],userinfo[3]);
             this.changeConnState();
+            //this.ucMessage1.messBL = messBL;
             this.ucAddressBook1.messBL = messBL;
             this.ucSettings1.messBL = messBL;
             base.OnLoad(e);
@@ -63,6 +94,7 @@ namespace PT_Messenger
         {
             this.ucSettings1.Visible = true;
             this.ucAddressBook1.Visible=false;
+            this.ucMessage1.Visible = false;
         }
 
         private void mf_pictureBox_message_MouseHover(object sender, EventArgs e)
@@ -73,6 +105,13 @@ namespace PT_Messenger
         private void mf_pictureBox_message_MouseLeave(object sender, EventArgs e)
         {
             this.mf_pictureBox_message.Image = Properties.Resources.message_w;
+        }
+
+        private void mf_pictureBox_message_Click(object sender, System.EventArgs e)
+        {
+            this.ucAddressBook1.Visible = false;
+            this.ucMessage1.Visible = true;
+            this.ucSettings1.Visible = false;
         }
 
         private void pictureBox1_MouseHover(object sender, EventArgs e)
@@ -89,24 +128,29 @@ namespace PT_Messenger
         {
             this.ucAddressBook1.Visible=true;
             this.ucSettings1.Visible=false;
+            this.ucMessage1.Visible = false;
         }
 
         private void mf_toolStripStatusLabel_polaczony_Click(object sender, EventArgs e)
         {
-            //TODO wznowienie połącznia
-            //mssBL = new Controlers.MessagerBL("silvio","trojan1");
+
         }
         private void mf_pictureBox_avatarFront_Click(object sender, EventArgs e)
         {
-            counter++;
+           this.Close();
+           parentFrm.Show();
+           
+        /*  counter++;
             if (counter % 2 == 0)
             {
                 parentFrm.Hide();
+                
             }
             else
             {
                 parentFrm.Show();
             }
+         */ 
         }
         #endregion
 
@@ -127,11 +171,27 @@ namespace PT_Messenger
 
         private void ChangeAvatar(object sender, EventArgs e)
         {
-            if (PT_Messenger.Properties.Settings.Default.avatar_path != "local") mf_pictureBox_avatar.Image = Image.FromFile(Properties.Settings.Default.avatar_path);
+            reloadAvatar();   
             mf_pictureBox_avatar.Controls.Add(mf_pictureBox_avatarFront);
             mf_pictureBox_avatarFront.Location = new Point(0, 0);
             mf_pictureBox_avatarFront.BackColor = Color.Transparent;
         }
+        private void AddPersonToConvers(object sender, EventArgs e)
+        {
+            var tmpAB = (ucAddressBook)sender;
+            this.ucAddressBook1.Visible = false;
+            this.ucMessage1.Visible = true;
+            this.ucMessage1.addPersonToConvers(tmpAB.activeContact);
+        }
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            this.ucAddressBook1.setAktUser(this.messBL.howManyActUser());
+            this.ucMessage1.anyNewMsg(this.messBL.anyNewMsg());
+
+        }
+
+
+
         
     }
 }

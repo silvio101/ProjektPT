@@ -41,17 +41,17 @@ namespace PT_Messenger
 
         private void clearRegForm()
         {
-            this.frm2_p3_textBox_login.Text = string.Empty;
-            this.frm2_p3_textBox_imie.Text = string.Empty;
-            this.frm2_p3_textBox_nazwisko.Text = string.Empty;
-            this.frm2_p3_textBox_haslo.Text = string.Empty;
-            this.frm2_p3_textBox_rehaslo.Text = string.Empty;
-            this.frm2_p3_textBox_email.Text = string.Empty;
+            this.frm2_p3_textBox_login.Clear();
+            this.frm2_p3_textBox_imie.Clear();
+            this.frm2_p3_textBox_nazwisko.Clear();
+            this.frm2_p3_textBox_haslo.Clear();
+            this.frm2_p3_textBox_rehaslo.Clear();
+            this.frm2_p3_textBox_email.Clear();
         }
         private void cleanLogForm()
         {
-            this.frm2_p2_textBox_login.Text = string.Empty;
-            this.frm2_p2_textBox_haslo.Text = string.Empty;
+            this.frm2_p2_textBox_login.Clear();
+            this.frm2_p2_textBox_haslo.Clear();
         }
 
         private bool validateP3Form()
@@ -260,7 +260,6 @@ namespace PT_Messenger
 
 
         #endregion
-
 
         #region events
         private void Connected(object sender, EventArgs e)

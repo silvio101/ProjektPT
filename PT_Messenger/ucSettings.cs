@@ -8,15 +8,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
+using LiteDB;
+using System.IO;
+using PT_Messenger.Controlers;
 
 namespace PT_Messenger
 {
     public partial class ucSettings : UserControl
     {
-        private PT_Messenger.Controlers.HelperBL helper;
+        public event EventHandler changeAvatar;
         public PT_Messenger.Controlers.MessagerBL messBL;
 
-        public event EventHandler changeAvatar;
+        private PT_Messenger.Controlers.HelperBL helper;
+        private string database;
+        
 
         public ucSettings()
         {   
@@ -50,38 +55,59 @@ namespace PT_Messenger
         private void ucSettings_Load(object sender, EventArgs e)
         {
             this.BackColor=helper.whichColor();
-            string filename = Properties.Settings.Default.avatar;
+            this.database = this.messBL.database;
+            using (var db = new LiteDatabase(this.database))
+            {
+                var stream = db.FileStorage.FindById("avatar");
+                if (stream != null)
+                {
+                    using (FileStream fs = File.Create(@"tmp"))
+                    {
+                        stream.CopyTo(fs);
+                        this.uc_pictureBox_avatar.Image = Image.FromStream(fs);
+                    }
+                }
+                else
+                {
+                    this.uc_pictureBox_avatar.Image = Properties.Resources.unknown_person_100;
+                }
+            } 
             this.uc_comboBox_skin.SelectedIndex=Properties.Settings.Default.skin;
-            if(Properties.Settings.Default.avatar_path!="local")
-                this.uc_pictureBox_avatar.Image = Image.FromFile(Properties.Settings.Default.avatar_path);
-            else 
-                this.uc_pictureBox_avatar.Image = Properties.Resources.unknown_person_100;
             this.uc_textbox_serwer.Text = Properties.Settings.Default.server;
-            if (filename.Length > 0)
-            {
-                this.uc_label_filename.Text=filename;
-            }
-            else
-            {
-                MessageBox.Show("Nieprawidłowa nazwa avatara w pliku konfiguracyjnym"); 
-            }
-            
+            this.uc_label_filename.Text = "Avatar - "+this.messBL.login; 
         }
 
         private void uc_button_zmien_Click(object sender, EventArgs e)
         {
             if(uc_openFileDialog_avatar.ShowDialog()==DialogResult.OK)
             {
-                if (uc_openFileDialog_avatar.SafeFileName.Length<120)
-                    uc_label_filename.Text = uc_openFileDialog_avatar.SafeFileName;
-                else
-                    uc_label_filename.Text = uc_openFileDialog_avatar.SafeFileName.Substring(0,120);
-                //helper.changeAvatar(uc_openFileDialog_avatar.SafeFileName, uc_openFileDialog_avatar.FileName);
-                Properties.Settings.Default.avatar = uc_openFileDialog_avatar.SafeFileName;
-                Properties.Settings.Default.avatar_path = uc_openFileDialog_avatar.FileName;
-                Properties.Settings.Default.Save();
+                if(new FileInfo(uc_openFileDialog_avatar.FileName).Length>1000000)
+                {
+                    MessageBox.Show("Za duży plik, max 1MB","Za duży plik",MessageBoxButtons.OK);
+                    return;
+                }
+                using(var db = new LiteDatabase(this.database))
+                {
+                    db.FileStorage.Upload("avatar",uc_openFileDialog_avatar.FileName);
+                }
             }
-            this.uc_pictureBox_avatar.Image = Image.FromFile(Properties.Settings.Default.avatar_path);
+            using (var db = new LiteDatabase(this.database))
+            {
+                var stream = db.FileStorage.FindById("avatar");
+                if (stream != null)
+                {
+                    using (FileStream fs = File.Create(@"tmp"))
+                    {
+                        stream.CopyTo(fs);
+                        this.uc_pictureBox_avatar.Image = Image.FromStream(fs);
+                    }
+                }
+                else
+                {
+                    this.uc_pictureBox_avatar.Image = Properties.Resources.unknown_person_100;
+                }
+            } 
+            
             this.OnChangeAvatar();
             this.Invalidate();
         }
@@ -95,7 +121,11 @@ namespace PT_Messenger
         {
             this.uc_pictureBox_avatar.Image = Properties.Resources.unknown_person_100;
             helper.restoreDefaultAvatar();
-            this.uc_label_filename.Text = helper.getAvatarName();
+            using (var db = new LiteDatabase(this.database))
+            {
+                db.FileStorage.Delete("avatar");
+            } 
+            this.OnChangeAvatar();
         }
 
         private void uc_comboBox_skin_SelectionChangeCommitted(object sender, EventArgs e)
@@ -133,7 +163,7 @@ namespace PT_Messenger
                     MessageBox.Show("Aktualizacja niepoprawna","Problem!",MessageBoxButtons.OK, MessageBoxIcon.Error);
                 messBL.getUserInfo();
             }
-            if(uc_textBox_password.Text.Equals(uc_textBox_repassword.Text)&&(!uc_textBox_password.Text.Equals(messBL.passwd)))
+            if(uc_textBox_password.Text.Equals(uc_textBox_repassword.Text)&&(!uc_textBox_password.Text.Equals(messBL.passwd))&&uc_textBox_password.Text!=String.Empty)
             {
                 if(messBL.passChange(uc_textBox_password.Text))
                     MessageBox.Show("Zaaktualizowano hasło poprawnie");
@@ -148,8 +178,8 @@ namespace PT_Messenger
             uc_textBox_imie.Text = messBL.username;
             uc_textBox_nazwisko.Text = messBL.surname;
             uc_textBox_email.Text = messBL.email;
-            uc_textBox_password.Text = String.Empty;
-            uc_textBox_repassword.Text = String.Empty;
+            uc_textBox_password.Clear();
+            uc_textBox_repassword.Clear();
             uc_errorProvider.SetError(uc_label_potwierdzhaslo, string.Empty);
             uc_textBox_password.BackColor = System.Drawing.Color.White;
             uc_textBox_repassword.BackColor = System.Drawing.Color.White;

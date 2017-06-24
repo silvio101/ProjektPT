@@ -106,6 +106,7 @@
             // 
             // uc_groupBox_settings
             // 
+            this.uc_groupBox_settings.BackColor = System.Drawing.Color.Transparent;
             this.uc_groupBox_settings.Controls.Add(this.uc_textbox_serwer);
             this.uc_groupBox_settings.Controls.Add(this.uc_label_serwer);
             this.uc_groupBox_settings.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
@@ -126,6 +127,7 @@
             // 
             // uc_groupBox_user
             // 
+            this.uc_groupBox_user.BackColor = System.Drawing.Color.Transparent;
             this.uc_groupBox_user.Controls.Add(this.uc_button_passclean);
             this.uc_groupBox_user.Controls.Add(this.uc_groupBox_password);
             this.uc_groupBox_user.Controls.Add(this.uc_button_passZmien);
@@ -352,6 +354,7 @@
             // 
             // uc_groupBox_dessign
             // 
+            this.uc_groupBox_dessign.BackColor = System.Drawing.Color.Transparent;
             this.uc_groupBox_dessign.Controls.Add(this.uc_comboBox_skin);
             this.uc_groupBox_dessign.Controls.Add(this.uc_label_skin);
             this.uc_groupBox_dessign.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));

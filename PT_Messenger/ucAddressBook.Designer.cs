@@ -31,6 +31,8 @@
             this.uc2_label_ksiazka = new System.Windows.Forms.Label();
             this.uc2_tabControl = new System.Windows.Forms.TabControl();
             this.uc2_tabPage_kontakty = new System.Windows.Forms.TabPage();
+            this.uc2_label_aktUser_view = new System.Windows.Forms.Label();
+            this.uc2_label_aktywUser = new System.Windows.Forms.Label();
             this.uc2_tab_groupBox_kontakty = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
             this.uc2_tab_label_email_view = new System.Windows.Forms.Label();
@@ -44,29 +46,34 @@
             this.uc2_tab_label_imie_view = new System.Windows.Forms.Label();
             this.uc2_treeView_kontakty = new System.Windows.Forms.TreeView();
             this.uc2_tabPage_szukaj = new System.Windows.Forms.TabPage();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.uc2_tab2_textBox_login = new System.Windows.Forms.TextBox();
+            this.uc2_tab2_label_login = new System.Windows.Forms.Label();
+            this.uc2_tab2_label_imie = new System.Windows.Forms.Label();
+            this.uc2_tab2_button_czysc = new System.Windows.Forms.Button();
+            this.uc2_tab2_label_nazwisko = new System.Windows.Forms.Label();
+            this.uc2_tab2_button_szukaj = new System.Windows.Forms.Button();
+            this.uc2_tab2_label_email = new System.Windows.Forms.Label();
+            this.uc2_tab2_textBox_email = new System.Windows.Forms.TextBox();
+            this.uc2_tab2_textBox_imie = new System.Windows.Forms.TextBox();
+            this.uc2_tab2_textBox_nazwisko = new System.Windows.Forms.TextBox();
             this.uc2_tab2_button_dodajKs = new System.Windows.Forms.Button();
             this.uc2_tab2_dataGridView = new System.Windows.Forms.DataGridView();
-            this.uc2_tab2_button_czysc = new System.Windows.Forms.Button();
-            this.uc2_tab2_button_szukaj = new System.Windows.Forms.Button();
-            this.uc2_tab2_textBox_email = new System.Windows.Forms.TextBox();
-            this.uc2_tab2_textBox_nazwisko = new System.Windows.Forms.TextBox();
-            this.uc2_tab2_textBox_imie = new System.Windows.Forms.TextBox();
-            this.uc2_tab2_textBox_login = new System.Windows.Forms.TextBox();
-            this.uc2_tab2_label_email = new System.Windows.Forms.Label();
-            this.uc2_tab2_label_nazwisko = new System.Windows.Forms.Label();
-            this.uc2_tab2_label_imie = new System.Windows.Forms.Label();
-            this.uc2_tab2_label_login = new System.Windows.Forms.Label();
+            this.uc2_tab_button_start = new System.Windows.Forms.Button();
+            this.uc2_tab_groupBox_statystyki = new System.Windows.Forms.GroupBox();
             this.uc2_tabControl.SuspendLayout();
             this.uc2_tabPage_kontakty.SuspendLayout();
             this.uc2_tab_groupBox_kontakty.SuspendLayout();
             this.uc2_tabPage_szukaj.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.uc2_tab2_dataGridView)).BeginInit();
+            this.uc2_tab_groupBox_statystyki.SuspendLayout();
             this.SuspendLayout();
             // 
             // uc2_label_ksiazka
             // 
             this.uc2_label_ksiazka.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.uc2_label_ksiazka.Location = new System.Drawing.Point(313, 4);
+            this.uc2_label_ksiazka.Location = new System.Drawing.Point(313, 10);
             this.uc2_label_ksiazka.Name = "uc2_label_ksiazka";
             this.uc2_label_ksiazka.Size = new System.Drawing.Size(180, 22);
             this.uc2_label_ksiazka.TabIndex = 0;
@@ -86,23 +93,43 @@
             this.uc2_tabControl.Padding = new System.Drawing.Point(20, 3);
             this.uc2_tabControl.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.uc2_tabControl.SelectedIndex = 0;
-            this.uc2_tabControl.Size = new System.Drawing.Size(574, 468);
+            this.uc2_tabControl.Size = new System.Drawing.Size(574, 410);
             this.uc2_tabControl.TabIndex = 2;
             // 
             // uc2_tabPage_kontakty
             // 
             this.uc2_tabPage_kontakty.BackColor = System.Drawing.Color.Transparent;
+            this.uc2_tabPage_kontakty.Controls.Add(this.uc2_tab_groupBox_statystyki);
             this.uc2_tabPage_kontakty.Controls.Add(this.uc2_tab_groupBox_kontakty);
             this.uc2_tabPage_kontakty.Location = new System.Drawing.Point(4, 39);
             this.uc2_tabPage_kontakty.Name = "uc2_tabPage_kontakty";
             this.uc2_tabPage_kontakty.Padding = new System.Windows.Forms.Padding(3);
-            this.uc2_tabPage_kontakty.Size = new System.Drawing.Size(566, 425);
+            this.uc2_tabPage_kontakty.Size = new System.Drawing.Size(566, 367);
             this.uc2_tabPage_kontakty.TabIndex = 0;
             this.uc2_tabPage_kontakty.Text = "Kontakty";
-            this.uc2_tabPage_kontakty.Enter += new System.EventHandler(this.uc2_tabPage_kontakty_Enter);
+            this.uc2_tabPage_kontakty.Enter += new System.EventHandler(this.uc2_tab2_button_szukaj_Click);
+            // 
+            // uc2_label_aktUser_view
+            // 
+            this.uc2_label_aktUser_view.AutoSize = true;
+            this.uc2_label_aktUser_view.Location = new System.Drawing.Point(182, 28);
+            this.uc2_label_aktUser_view.Name = "uc2_label_aktUser_view";
+            this.uc2_label_aktUser_view.Size = new System.Drawing.Size(20, 13);
+            this.uc2_label_aktUser_view.TabIndex = 12;
+            this.uc2_label_aktUser_view.Text = "ile";
+            // 
+            // uc2_label_aktywUser
+            // 
+            this.uc2_label_aktywUser.AutoSize = true;
+            this.uc2_label_aktywUser.Location = new System.Drawing.Point(17, 28);
+            this.uc2_label_aktywUser.Name = "uc2_label_aktywUser";
+            this.uc2_label_aktywUser.Size = new System.Drawing.Size(159, 13);
+            this.uc2_label_aktywUser.TabIndex = 11;
+            this.uc2_label_aktywUser.Text = "Aktywnych użytkowników: ";
             // 
             // uc2_tab_groupBox_kontakty
             // 
+            this.uc2_tab_groupBox_kontakty.Controls.Add(this.uc2_tab_button_start);
             this.uc2_tab_groupBox_kontakty.Controls.Add(this.label2);
             this.uc2_tab_groupBox_kontakty.Controls.Add(this.uc2_tab_label_email_view);
             this.uc2_tab_groupBox_kontakty.Controls.Add(this.uc2_tab_button_usun);
@@ -144,8 +171,8 @@
             this.uc2_tab_button_usun.Enabled = false;
             this.uc2_tab_button_usun.Location = new System.Drawing.Point(167, 193);
             this.uc2_tab_button_usun.Name = "uc2_tab_button_usun";
-            this.uc2_tab_button_usun.Size = new System.Drawing.Size(95, 23);
-            this.uc2_tab_button_usun.TabIndex = 7;
+            this.uc2_tab_button_usun.Size = new System.Drawing.Size(95, 25);
+            this.uc2_tab_button_usun.TabIndex = 2;
             this.uc2_tab_button_usun.Text = "Usuń";
             this.uc2_tab_button_usun.UseVisualStyleBackColor = true;
             this.uc2_tab_button_usun.Click += new System.EventHandler(this.uc2_tab_button_usun_Click);
@@ -221,31 +248,122 @@
             // 
             this.uc2_tabPage_szukaj.AutoScroll = true;
             this.uc2_tabPage_szukaj.BackColor = System.Drawing.Color.Transparent;
+            this.uc2_tabPage_szukaj.Controls.Add(this.groupBox1);
             this.uc2_tabPage_szukaj.Controls.Add(this.uc2_tab2_button_dodajKs);
             this.uc2_tabPage_szukaj.Controls.Add(this.uc2_tab2_dataGridView);
-            this.uc2_tabPage_szukaj.Controls.Add(this.uc2_tab2_button_czysc);
-            this.uc2_tabPage_szukaj.Controls.Add(this.uc2_tab2_button_szukaj);
-            this.uc2_tabPage_szukaj.Controls.Add(this.uc2_tab2_textBox_email);
-            this.uc2_tabPage_szukaj.Controls.Add(this.uc2_tab2_textBox_nazwisko);
-            this.uc2_tabPage_szukaj.Controls.Add(this.uc2_tab2_textBox_imie);
-            this.uc2_tabPage_szukaj.Controls.Add(this.uc2_tab2_textBox_login);
-            this.uc2_tabPage_szukaj.Controls.Add(this.uc2_tab2_label_email);
-            this.uc2_tabPage_szukaj.Controls.Add(this.uc2_tab2_label_nazwisko);
-            this.uc2_tabPage_szukaj.Controls.Add(this.uc2_tab2_label_imie);
-            this.uc2_tabPage_szukaj.Controls.Add(this.uc2_tab2_label_login);
             this.uc2_tabPage_szukaj.Location = new System.Drawing.Point(4, 39);
             this.uc2_tabPage_szukaj.Name = "uc2_tabPage_szukaj";
             this.uc2_tabPage_szukaj.Padding = new System.Windows.Forms.Padding(3);
-            this.uc2_tabPage_szukaj.Size = new System.Drawing.Size(566, 425);
+            this.uc2_tabPage_szukaj.Size = new System.Drawing.Size(566, 367);
             this.uc2_tabPage_szukaj.TabIndex = 1;
             this.uc2_tabPage_szukaj.Text = "Szukaj Kontaktów";
+            this.uc2_tabPage_szukaj.Paint += new System.Windows.Forms.PaintEventHandler(this.uc2_tabPage_szukaj_Paint);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.uc2_tab2_textBox_login);
+            this.groupBox1.Controls.Add(this.uc2_tab2_label_login);
+            this.groupBox1.Controls.Add(this.uc2_tab2_label_imie);
+            this.groupBox1.Controls.Add(this.uc2_tab2_button_czysc);
+            this.groupBox1.Controls.Add(this.uc2_tab2_label_nazwisko);
+            this.groupBox1.Controls.Add(this.uc2_tab2_button_szukaj);
+            this.groupBox1.Controls.Add(this.uc2_tab2_label_email);
+            this.groupBox1.Controls.Add(this.uc2_tab2_textBox_email);
+            this.groupBox1.Controls.Add(this.uc2_tab2_textBox_imie);
+            this.groupBox1.Controls.Add(this.uc2_tab2_textBox_nazwisko);
+            this.groupBox1.Location = new System.Drawing.Point(59, 6);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(303, 178);
+            this.groupBox1.TabIndex = 17;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Szukaj";
+            // 
+            // uc2_tab2_textBox_login
+            // 
+            this.uc2_tab2_textBox_login.Location = new System.Drawing.Point(86, 27);
+            this.uc2_tab2_textBox_login.Name = "uc2_tab2_textBox_login";
+            this.uc2_tab2_textBox_login.Size = new System.Drawing.Size(200, 20);
+            this.uc2_tab2_textBox_login.TabIndex = 8;
+            // 
+            // uc2_tab2_label_login
+            // 
+            this.uc2_tab2_label_login.Location = new System.Drawing.Point(28, 30);
+            this.uc2_tab2_label_login.Name = "uc2_tab2_label_login";
+            this.uc2_tab2_label_login.Size = new System.Drawing.Size(42, 13);
+            this.uc2_tab2_label_login.TabIndex = 4;
+            this.uc2_tab2_label_login.Text = "Login:";
+            // 
+            // uc2_tab2_label_imie
+            // 
+            this.uc2_tab2_label_imie.Location = new System.Drawing.Point(36, 56);
+            this.uc2_tab2_label_imie.Name = "uc2_tab2_label_imie";
+            this.uc2_tab2_label_imie.Size = new System.Drawing.Size(34, 13);
+            this.uc2_tab2_label_imie.TabIndex = 5;
+            this.uc2_tab2_label_imie.Text = "Imie:";
+            // 
+            // uc2_tab2_button_czysc
+            // 
+            this.uc2_tab2_button_czysc.Location = new System.Drawing.Point(182, 145);
+            this.uc2_tab2_button_czysc.Name = "uc2_tab2_button_czysc";
+            this.uc2_tab2_button_czysc.Size = new System.Drawing.Size(75, 23);
+            this.uc2_tab2_button_czysc.TabIndex = 13;
+            this.uc2_tab2_button_czysc.Text = "Wyczyść";
+            this.uc2_tab2_button_czysc.UseVisualStyleBackColor = true;
+            this.uc2_tab2_button_czysc.Click += new System.EventHandler(this.uc2_tab2_button_czysc_Click);
+            // 
+            // uc2_tab2_label_nazwisko
+            // 
+            this.uc2_tab2_label_nazwisko.Location = new System.Drawing.Point(5, 84);
+            this.uc2_tab2_label_nazwisko.Name = "uc2_tab2_label_nazwisko";
+            this.uc2_tab2_label_nazwisko.Size = new System.Drawing.Size(65, 13);
+            this.uc2_tab2_label_nazwisko.TabIndex = 6;
+            this.uc2_tab2_label_nazwisko.Text = "Nazwisko:";
+            // 
+            // uc2_tab2_button_szukaj
+            // 
+            this.uc2_tab2_button_szukaj.Location = new System.Drawing.Point(75, 145);
+            this.uc2_tab2_button_szukaj.Name = "uc2_tab2_button_szukaj";
+            this.uc2_tab2_button_szukaj.Size = new System.Drawing.Size(75, 23);
+            this.uc2_tab2_button_szukaj.TabIndex = 12;
+            this.uc2_tab2_button_szukaj.Text = "Szukaj";
+            this.uc2_tab2_button_szukaj.UseVisualStyleBackColor = true;
+            this.uc2_tab2_button_szukaj.Click += new System.EventHandler(this.uc2_tab2_button_szukaj_Click);
+            // 
+            // uc2_tab2_label_email
+            // 
+            this.uc2_tab2_label_email.Location = new System.Drawing.Point(29, 113);
+            this.uc2_tab2_label_email.Name = "uc2_tab2_label_email";
+            this.uc2_tab2_label_email.Size = new System.Drawing.Size(41, 13);
+            this.uc2_tab2_label_email.TabIndex = 7;
+            this.uc2_tab2_label_email.Text = "Email:";
+            // 
+            // uc2_tab2_textBox_email
+            // 
+            this.uc2_tab2_textBox_email.Location = new System.Drawing.Point(86, 110);
+            this.uc2_tab2_textBox_email.Name = "uc2_tab2_textBox_email";
+            this.uc2_tab2_textBox_email.Size = new System.Drawing.Size(200, 20);
+            this.uc2_tab2_textBox_email.TabIndex = 11;
+            // 
+            // uc2_tab2_textBox_imie
+            // 
+            this.uc2_tab2_textBox_imie.Location = new System.Drawing.Point(86, 53);
+            this.uc2_tab2_textBox_imie.Name = "uc2_tab2_textBox_imie";
+            this.uc2_tab2_textBox_imie.Size = new System.Drawing.Size(200, 20);
+            this.uc2_tab2_textBox_imie.TabIndex = 9;
+            // 
+            // uc2_tab2_textBox_nazwisko
+            // 
+            this.uc2_tab2_textBox_nazwisko.Location = new System.Drawing.Point(86, 81);
+            this.uc2_tab2_textBox_nazwisko.Name = "uc2_tab2_textBox_nazwisko";
+            this.uc2_tab2_textBox_nazwisko.Size = new System.Drawing.Size(200, 20);
+            this.uc2_tab2_textBox_nazwisko.TabIndex = 10;
             // 
             // uc2_tab2_button_dodajKs
             // 
             this.uc2_tab2_button_dodajKs.Enabled = false;
-            this.uc2_tab2_button_dodajKs.Location = new System.Drawing.Point(211, 387);
+            this.uc2_tab2_button_dodajKs.Location = new System.Drawing.Point(380, 80);
             this.uc2_tab2_button_dodajKs.Name = "uc2_tab2_button_dodajKs";
-            this.uc2_tab2_button_dodajKs.Size = new System.Drawing.Size(153, 23);
+            this.uc2_tab2_button_dodajKs.Size = new System.Drawing.Size(136, 23);
             this.uc2_tab2_button_dodajKs.TabIndex = 16;
             this.uc2_tab2_button_dodajKs.Text = "Dodaj do Książki";
             this.uc2_tab2_button_dodajKs.UseVisualStyleBackColor = true;
@@ -257,92 +375,34 @@
             this.uc2_tab2_dataGridView.AllowUserToDeleteRows = false;
             this.uc2_tab2_dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.uc2_tab2_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.uc2_tab2_dataGridView.Location = new System.Drawing.Point(37, 190);
+            this.uc2_tab2_dataGridView.Location = new System.Drawing.Point(58, 193);
             this.uc2_tab2_dataGridView.Name = "uc2_tab2_dataGridView";
             this.uc2_tab2_dataGridView.ReadOnly = true;
-            this.uc2_tab2_dataGridView.Size = new System.Drawing.Size(500, 184);
+            this.uc2_tab2_dataGridView.Size = new System.Drawing.Size(458, 161);
             this.uc2_tab2_dataGridView.TabIndex = 15;
             this.uc2_tab2_dataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.uc2_tab2_dataGridView_CellClick);
             // 
-            // uc2_tab2_button_czysc
+            // uc2_tab_button_start
             // 
-            this.uc2_tab2_button_czysc.Location = new System.Drawing.Point(320, 155);
-            this.uc2_tab2_button_czysc.Name = "uc2_tab2_button_czysc";
-            this.uc2_tab2_button_czysc.Size = new System.Drawing.Size(75, 23);
-            this.uc2_tab2_button_czysc.TabIndex = 13;
-            this.uc2_tab2_button_czysc.Text = "Wyczyść";
-            this.uc2_tab2_button_czysc.UseVisualStyleBackColor = true;
-            this.uc2_tab2_button_czysc.Click += new System.EventHandler(this.uc2_tab2_button_czysc_Click);
+            this.uc2_tab_button_start.Enabled = false;
+            this.uc2_tab_button_start.Location = new System.Drawing.Point(53, 193);
+            this.uc2_tab_button_start.Name = "uc2_tab_button_start";
+            this.uc2_tab_button_start.Size = new System.Drawing.Size(95, 25);
+            this.uc2_tab_button_start.TabIndex = 1;
+            this.uc2_tab_button_start.Text = "Rozpocznij";
+            this.uc2_tab_button_start.UseVisualStyleBackColor = true;
+            this.uc2_tab_button_start.Click += new System.EventHandler(this.uc2_tab_button_start_Click);
             // 
-            // uc2_tab2_button_szukaj
+            // uc2_tab_groupBox_statystyki
             // 
-            this.uc2_tab2_button_szukaj.Location = new System.Drawing.Point(195, 155);
-            this.uc2_tab2_button_szukaj.Name = "uc2_tab2_button_szukaj";
-            this.uc2_tab2_button_szukaj.Size = new System.Drawing.Size(75, 23);
-            this.uc2_tab2_button_szukaj.TabIndex = 12;
-            this.uc2_tab2_button_szukaj.Text = "Szukaj";
-            this.uc2_tab2_button_szukaj.UseVisualStyleBackColor = true;
-            this.uc2_tab2_button_szukaj.Click += new System.EventHandler(this.uc2_tab2_button_szukaj_Click);
-            // 
-            // uc2_tab2_textBox_email
-            // 
-            this.uc2_tab2_textBox_email.Location = new System.Drawing.Point(195, 115);
-            this.uc2_tab2_textBox_email.Name = "uc2_tab2_textBox_email";
-            this.uc2_tab2_textBox_email.Size = new System.Drawing.Size(200, 20);
-            this.uc2_tab2_textBox_email.TabIndex = 11;
-            // 
-            // uc2_tab2_textBox_nazwisko
-            // 
-            this.uc2_tab2_textBox_nazwisko.Location = new System.Drawing.Point(195, 86);
-            this.uc2_tab2_textBox_nazwisko.Name = "uc2_tab2_textBox_nazwisko";
-            this.uc2_tab2_textBox_nazwisko.Size = new System.Drawing.Size(200, 20);
-            this.uc2_tab2_textBox_nazwisko.TabIndex = 10;
-            // 
-            // uc2_tab2_textBox_imie
-            // 
-            this.uc2_tab2_textBox_imie.Location = new System.Drawing.Point(195, 58);
-            this.uc2_tab2_textBox_imie.Name = "uc2_tab2_textBox_imie";
-            this.uc2_tab2_textBox_imie.Size = new System.Drawing.Size(200, 20);
-            this.uc2_tab2_textBox_imie.TabIndex = 9;
-            // 
-            // uc2_tab2_textBox_login
-            // 
-            this.uc2_tab2_textBox_login.Location = new System.Drawing.Point(195, 32);
-            this.uc2_tab2_textBox_login.Name = "uc2_tab2_textBox_login";
-            this.uc2_tab2_textBox_login.Size = new System.Drawing.Size(200, 20);
-            this.uc2_tab2_textBox_login.TabIndex = 8;
-            // 
-            // uc2_tab2_label_email
-            // 
-            this.uc2_tab2_label_email.Location = new System.Drawing.Point(138, 118);
-            this.uc2_tab2_label_email.Name = "uc2_tab2_label_email";
-            this.uc2_tab2_label_email.Size = new System.Drawing.Size(41, 13);
-            this.uc2_tab2_label_email.TabIndex = 7;
-            this.uc2_tab2_label_email.Text = "Email:";
-            // 
-            // uc2_tab2_label_nazwisko
-            // 
-            this.uc2_tab2_label_nazwisko.Location = new System.Drawing.Point(114, 89);
-            this.uc2_tab2_label_nazwisko.Name = "uc2_tab2_label_nazwisko";
-            this.uc2_tab2_label_nazwisko.Size = new System.Drawing.Size(65, 13);
-            this.uc2_tab2_label_nazwisko.TabIndex = 6;
-            this.uc2_tab2_label_nazwisko.Text = "Nazwisko:";
-            // 
-            // uc2_tab2_label_imie
-            // 
-            this.uc2_tab2_label_imie.Location = new System.Drawing.Point(145, 61);
-            this.uc2_tab2_label_imie.Name = "uc2_tab2_label_imie";
-            this.uc2_tab2_label_imie.Size = new System.Drawing.Size(34, 13);
-            this.uc2_tab2_label_imie.TabIndex = 5;
-            this.uc2_tab2_label_imie.Text = "Imie:";
-            // 
-            // uc2_tab2_label_login
-            // 
-            this.uc2_tab2_label_login.Location = new System.Drawing.Point(137, 35);
-            this.uc2_tab2_label_login.Name = "uc2_tab2_label_login";
-            this.uc2_tab2_label_login.Size = new System.Drawing.Size(42, 13);
-            this.uc2_tab2_label_login.TabIndex = 4;
-            this.uc2_tab2_label_login.Text = "Login:";
+            this.uc2_tab_groupBox_statystyki.Controls.Add(this.uc2_label_aktywUser);
+            this.uc2_tab_groupBox_statystyki.Controls.Add(this.uc2_label_aktUser_view);
+            this.uc2_tab_groupBox_statystyki.Location = new System.Drawing.Point(59, 264);
+            this.uc2_tab_groupBox_statystyki.Name = "uc2_tab_groupBox_statystyki";
+            this.uc2_tab_groupBox_statystyki.Size = new System.Drawing.Size(260, 89);
+            this.uc2_tab_groupBox_statystyki.TabIndex = 13;
+            this.uc2_tab_groupBox_statystyki.TabStop = false;
+            this.uc2_tab_groupBox_statystyki.Text = "Statystyki";
             // 
             // ucAddressBook
             // 
@@ -352,7 +412,7 @@
             this.Controls.Add(this.uc2_label_ksiazka);
             this.Controls.Add(this.uc2_tabControl);
             this.Name = "ucAddressBook";
-            this.Size = new System.Drawing.Size(580, 474);
+            this.Size = new System.Drawing.Size(580, 416);
             this.Load += new System.EventHandler(this.ucAddressBook_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.ucAddressBook_Paint);
             this.uc2_tabControl.ResumeLayout(false);
@@ -360,8 +420,11 @@
             this.uc2_tab_groupBox_kontakty.ResumeLayout(false);
             this.uc2_tab_groupBox_kontakty.PerformLayout();
             this.uc2_tabPage_szukaj.ResumeLayout(false);
-            this.uc2_tabPage_szukaj.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.uc2_tab2_dataGridView)).EndInit();
+            this.uc2_tab_groupBox_statystyki.ResumeLayout(false);
+            this.uc2_tab_groupBox_statystyki.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -396,6 +459,11 @@
         private System.Windows.Forms.Label uc2_tab_label_email_view;
         private System.Windows.Forms.GroupBox uc2_tab_groupBox_kontakty;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label uc2_label_aktUser_view;
+        private System.Windows.Forms.Label uc2_label_aktywUser;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox uc2_tab_groupBox_statystyki;
+        private System.Windows.Forms.Button uc2_tab_button_start;
 
     }
 }

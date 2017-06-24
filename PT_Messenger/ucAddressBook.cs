@@ -16,12 +16,18 @@ namespace PT_Messenger
     public partial class ucAddressBook : UserControl
     {
         public List<Person> result {get;set;}
+        public string activeContact { get;set; } 
+        public MessagerBL messBL { get;set; }
+        public event EventHandler addPersonToConvers;
+
         private int activeCell;
-        private PT_Messenger.Controlers.HelperBL helper;
-        public PT_Messenger.Controlers.MessagerBL messBL { get;set; }
+        private string database;
+        private HelperBL helper;
+        
         public ucAddressBook()
         {
-            helper = new Controlers.HelperBL();
+            helper = new HelperBL();
+            this.activeContact = String.Empty;
             InitializeComponent();
         }
 
@@ -35,7 +41,7 @@ namespace PT_Messenger
         private List<Person> getPersonFromDB()
         {
             List<Person> r = new List<Person>();
-            using (var db = new LiteDatabase(@"Messenger.db"))
+            using (var db = new LiteDatabase(database))
             {
                 var persons = db.GetCollection<Person>("persons");
                 r = persons.FindAll().ToList();
@@ -45,7 +51,7 @@ namespace PT_Messenger
         private Person getPersonFromDB(string login)
         {
             Person r = new Person();
-            using (var db = new LiteDatabase(@"Messenger.db"))
+            using (var db = new LiteDatabase(database))
             {
                 var persons = db.GetCollection<Person>("persons");
                 r = persons.Find(x=>x.login == login).First();
@@ -54,26 +60,30 @@ namespace PT_Messenger
         }
         private void removePersonFromDB(string login)
         {
-            using(var db=new LiteDatabase(@"Messenger.db"))
+            using (var db = new LiteDatabase(database))
             {
                 var persons = db.GetCollection<Person>("persons");
                 persons.Delete(x=>x.login == login);
             }
         }
+        public void setAktUser(int ile)
+        {
+            this.uc2_label_aktUser_view.Text = ile.ToString();
+        }
 
         private void ucAddressBook_Load(object sender, EventArgs e)
         {
-            this.BackColor=helper.whichColor();
+            this.database = this.messBL.database;
             this.uc2_tab_label_imie_view.Text=String.Empty;
             this.uc2_tab_label_login_view.Text = String.Empty;
             this.uc2_tab_label_nazwisko_view.Text = String.Empty;
             this.uc2_tab_label_email_view.Text = String.Empty;
+            this.uc2_label_aktUser_view.Text = String.Empty;
             foreach (var a in getPersonFromDB())
             {
                 var contact = new TreeNode(a.login);
                 uc2_treeView_kontakty.Nodes.Add(contact);
             }
-           
         }
 
         private void ucAddressBook_Paint(object sender, PaintEventArgs e)
@@ -111,7 +121,7 @@ namespace PT_Messenger
 
         private void uc2_tab2_button_dodajKs_Click(object sender, EventArgs e)
         {
-            using(var db = new LiteDatabase(@"Messenger.db"))
+            using (var db = new LiteDatabase(database))
             {
                 var persons = db.GetCollection<Person>("persons");
                 var p = new Person
@@ -127,7 +137,8 @@ namespace PT_Messenger
                 {
                     persons.Insert(p);
                     this.uc2_treeView_kontakty.Nodes.Add(new TreeNode(p.login));
-                    MessageBox.Show("Dodano nowy kontakt: "+p.login.ToString());
+                    //MessageBox.Show("Dodano nowy kontakt: "+p.login.ToString());
+                    this.uc2_tabControl.SelectTab(0);
                 }
             }
         }
@@ -138,14 +149,11 @@ namespace PT_Messenger
             this.activeCell = uc2_tab2_dataGridView.CurrentCell.RowIndex;
         }
 
-        private void uc2_tabPage_kontakty_Enter(object sender, EventArgs e)
-        {
-
-        }
-
         private void uc2_treeView_kontakty_AfterSelect(object sender, TreeViewEventArgs e)
         {
             this.uc2_tab_button_usun.Enabled = true;
+            this.uc2_tab_button_start.Enabled = true;
+            this.activeContact = uc2_treeView_kontakty.SelectedNode.Text;
             var person = getPersonFromDB(e.Node.Text);
             uc2_tab_label_login_view.Text = person.login;
             uc2_tab_label_imie_view.Text = person.username;
@@ -160,6 +168,26 @@ namespace PT_Messenger
                 removePersonFromDB(this.uc2_treeView_kontakty.SelectedNode.Text);
                 this.uc2_treeView_kontakty.SelectedNode.Remove();
             }
+        }
+
+        private void uc2_tabPage_szukaj_Paint(object sender, PaintEventArgs e)
+        {
+            this.BackColor = helper.whichColor();
+        }
+
+        private void uc2_tab_button_start_Click(object sender, EventArgs e)
+        {
+            if(this.uc2_treeView_kontakty.SelectedNode.Index>-1)
+            {
+                OnAddPersonToConvers();
+            }
+            
+        }
+
+        protected void OnAddPersonToConvers()
+        {
+            if(addPersonToConvers!=null)
+                addPersonToConvers(this,EventArgs.Empty);
         }
 
 

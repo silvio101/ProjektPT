@@ -89,6 +89,12 @@
     <Compile Include="ucAddressBook.Designer.cs">
       <DependentUpon>ucAddressBook.cs</DependentUpon>
     </Compile>
+    <Compile Include="ucMessage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucMessage.Designer.cs">
+      <DependentUpon>ucMessage.cs</DependentUpon>
+    </Compile>
     <Compile Include="ucSettings.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -108,6 +114,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ucAddressBook.resx">
       <DependentUpon>ucAddressBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucMessage.resx">
+      <DependentUpon>ucMessage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ucSettings.resx">
       <DependentUpon>ucSettings.cs</DependentUpon>
@@ -205,6 +214,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\DataSources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\post_32.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

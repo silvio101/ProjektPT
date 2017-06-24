@@ -49,7 +49,7 @@ namespace PT_Messenger.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("127.0.0.1")]
+        [global::System.Configuration.DefaultSettingValueAttribute("192.168.56.10")]
         public string server {
             get {
                 return ((string)(this["server"]));
